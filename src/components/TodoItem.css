@@ -1,0 +1,20 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 80%;
+  background-color: whitesmoke;
+  margin: 6px 4px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.todoItem > p {
+  flex: 1;
+}
+.todoItem--done {
+  text-decoration: line-through;
+}
+
+.todoItem .eraseButton {
+  background-color: rgb(228, 69, 30) !important;
+}
