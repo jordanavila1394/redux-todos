@@ -43,10 +43,8 @@ export const {
   eraseTask,
   cancelTodoList,
 } = todoSlice.actions;
-
-export const selectTodoList = (state) => state.todos.todoList;
-
+// export const selectTodoList = (state) => console.log(state);
+export const selectTodoList = (state) => state.todoReducer.todoList;
 export const selectPendingTodo = (state) =>
-  state.todos.todoList.filter((item) => item.done === false);
-
+  state.todoReducer.todoList.filter((item) => item.done === false);
 export default todoSlice.reducer;

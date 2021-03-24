@@ -40,8 +40,9 @@
 .app_headingContainer {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 .app_footerContainer {
   display: flex;
@@ -64,4 +65,13 @@
   border-radius: 10px;
   height: 30px;
   width: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+  .app {
+    padding: 20px 5px;
+  }
+  .app_container {
+    width: 100%;
+  }
 }

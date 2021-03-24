@@ -11,18 +11,29 @@ import Button from "@material-ui/core/Button";
 
 import { toastTypes } from "../module/constants";
 
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { green, red } from "@material-ui/core/colors";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: green,
-    secondary: red,
+const GreenButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(green[900]),
+    backgroundColor: green[500],
+    "&:hover": {
+      backgroundColor: green[700],
+    },
   },
-});
+}))(Button);
+
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const TodoInput = () => {
   const [input, setInput] = useState("");
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const notifyError = () => toast.error("Inserire un testo!", toastTypes.ERROR);
 
@@ -40,6 +51,7 @@ const TodoInput = () => {
       notifyError();
     }
   };
+
   return (
     <div className="input">
       <ToastContainer />
@@ -47,13 +59,20 @@ const TodoInput = () => {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
+            addTodo();
+          }
+        }}
       />
-      {/* <button className="buttonPrimary addButton"></button> */}
-      <ThemeProvider theme={theme}>
-        <Button variant="contained" color="primary" onClick={addTodo}>
-          <FaPlus />
-        </Button>
-      </ThemeProvider>
+      <GreenButton
+        variant="contained"
+        color="primary"
+        className={classes.margin}
+        onClick={addTodo}
+      >
+        <FaPlus />
+      </GreenButton>
     </div>
   );
 };

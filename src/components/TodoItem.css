@@ -11,10 +11,14 @@
 .todoItem > p {
   flex: 1;
 }
-.todoItem--done {
+.itemDone {
   text-decoration: line-through;
 }
 
 .todoItem .eraseButton {
   background-color: rgb(228, 69, 30) !important;
+}
+.todoItemTime {
+  margin: 0 4px;
+  color: rgb(192, 192, 192);
 }

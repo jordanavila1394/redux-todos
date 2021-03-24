@@ -4,7 +4,7 @@ import { selectPendingTodo } from "../features/todoSlice";
 
 function TodoCounterPending() {
   const counterPendingTodo = useSelector(selectPendingTodo);
-  return (
+  return counterPendingTodo ? (
     <div>
       {counterPendingTodo.length > 0 ? (
         <div>
@@ -15,6 +15,8 @@ function TodoCounterPending() {
         <div>Non hai attività da svolgere</div>
       )}
     </div>
+  ) : (
+    ""
   );
 }
 

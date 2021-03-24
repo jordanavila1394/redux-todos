@@ -1,10 +1,13 @@
 import React from "react";
+import { Header } from "semantic-ui-react";
 
 function TodoHeading() {
   return (
-    <div>
-      <h1>ToDo</h1>
-    </div>
+    <>
+      <Header as="h2" color="green">
+        To Do
+      </Header>
+    </>
   );
 }
 
